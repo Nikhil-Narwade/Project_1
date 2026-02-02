@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon Clone</title>
+    <link rel="stylesheet" href="amazon2.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">amazon<span>.in</span></div>
+
+        <input type="text" id="searchInput" placeholder="Search Amazon">
+
+        <div class="cart">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </div>
+    </div>
+
+    <!-- MENU -->
+    <div class="menu">
+        <a href="#">All</a>
+        <a href="#">Mobiles</a>
+        <a href="#">Fashion</a>
+        <a href="#">Electronics</a>
+        <a href="#">Home</a>
+        <a href="#">Deals</a>
+        <button id="clearCart">Clear Cart</button>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Great Indian Sale</h1>
+        <p>Up to 50% off on top products</p>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="products" id="productList">
+
+        <div class="card" data-name="smartphone mobile" data-price="9999">
+            <span class="badge">20% OFF</span>
+            <img src="https://via.placeholder.com/200">
+            <h3>Smartphone</h3>
+            <p class="price">₹9,999</p>
+            <button class="addBtn">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="headphones audio" data-price="1499">
+            <span class="badge">35% OFF</span>
+            <img src="https://via.placeholder.com/200">
+            <h3>Headphones</h3>
+            <p class="price">₹1,499</p>
+            <button class="addBtn">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="smart watch" data-price="1999">
+            <span class="badge">15% OFF</span>
+            <img src="https://via.placeholder.com/200">
+            <h3>Smart Watch</h3>
+            <p class="price">₹1,999</p>
+            <button class="addBtn">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="laptop bag" data-price="799">
+            <span class="badge">10% OFF</span>
+            <img src="https://via.placeholder.com/200">
+            <h3>Laptop Bag</h3>
+            <p class="price">₹799</p>
+            <button class="addBtn">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2026 Amazon Clone
+    </div>
+
+<script src="amazon2.js"></script>
+</body>
+</html>
