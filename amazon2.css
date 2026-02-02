@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eaeaea;
+}
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #131921;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.logo {
+    color: orange;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: white;
+    font-size: 14px;
+}
+
+.navbar input {
+    flex: 1;
+    padding: 8px;
+}
+
+.cart {
+    color: white;
+    font-weight: bold;
+}
+
+/* MENU */
+.menu {
+    background-color: #232f3e;
+    padding: 10px 20px;
+}
+
+.menu a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.menu button {
+    background: #ffd814;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(to right, #ff9900, #ff6600);
+    color: white;
+    padding: 60px;
+    text-align: center;
+}
+
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 15px;
+    position: relative;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card button {
+    width: 100%;
+    padding: 8px;
+    background-color: #ffd814;
+    border: none;
+    cursor: pointer;
+}
+
+.card button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #131921;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
