@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f1f1f1;
+}
+
+.dark {
+    background: #121212;
+    color: white;
+}
+
+.navbar {
+    background: #131921;
+    color: white;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.logo {
+    color: orange;
+    font-size: 24px;
+}
+
+.logo span {
+    color: white;
+    font-size: 14px;
+}
+
+.navbar input {
+    flex: 1;
+    padding: 6px;
+}
+
+.menu {
+    background: #232f3e;
+    padding: 10px;
+}
+
+.menu button {
+    margin-right: 10px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.dark .card {
+    background: #1e1e1e;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card button {
+    margin: 5px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.cartModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+}
+
+.cartBox {
+    background: white;
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.dark .cartBox {
+    background: #1e1e1e;
+}
