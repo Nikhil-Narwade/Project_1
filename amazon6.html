@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon Clone</title>
+    <link rel="stylesheet" href="amazon6.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">amazon<span>.in</span></div>
+    <input type="text" id="searchInput" placeholder="Search products">
+    <button id="darkToggle">🌙</button>
+    <div class="cart" id="cartBtn">Cart (<span id="cartCount">0</span>)</div>
+</div>
+
+<div class="hero">
+    <h1>Great Indian Sale</h1>
+    <p>Smart shopping starts here</p>
+</div>
+
+<div class="filters">
+    <button onclick="filterCategory('all')">All</button>
+    <button onclick="filterCategory('electronics')">Electronics</button>
+    <button onclick="filterCategory('accessories')">Accessories</button>
+</div>
+
+<div class="products" id="productList"></div>
+
+<div class="cart-panel" id="cartPanel">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <h3>Total: ₹<span id="total">0</span></h3>
+    <button id="checkout">Checkout</button>
+    <button id="closeCart">Close</button>
+</div>
+
+<script src="amazon6.js"></script>
+</body>
+</html>
+```
+
+---
+
+### amazon6.css
+
+```css
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f3f6;
+    transition: background 0.3s;
+}
+
+body.dark {
+    background: #121212;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    background: #131921;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    color: orange;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.logo span { color: white; font-size: 14px; }
+
+.navbar input {
+    flex: 1;
+    padding: 8px;
+}
+
+.hero {
+    background: linear-gradient(to right, #ff9900, #ff6600);
+    padding: 50px;
+    text-align: center;
+    color: white;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+}
+
+.filters button {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+body.dark .card { background: #1e1e1e; }
+
+.card:hover { transform: scale(1.05); }
+
+.card img { width: 100%; }
+
+.card button {
+    width: 100%;
+    padding: 8px;
+    background: #ffd814;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.cart-panel.open { right: 0; }
+
+body.dark .cart-panel { background: #1e1e1e; }
+```
+
+---
+
+### amazon6.js
+
+```js
+const products = [
+    { id: 1, name: "Smartphone", price: 9999, img: "https://via.placeholder.com/200", category: "electronics" },
+    { id: 2, name: "Headphones", price: 1499, img: "https://via.placeholder.com/200", category: "electronics" },
+    { id: 3, name: "Smart Watch", price: 1999, img: "https://via.placeholder.com/200", category: "electronics" },
+    { id: 4, name: "Laptop Bag", price: 799, img: "https://via.placeholder.com/200", category: "accessories" }
+];
+
+let cart = JSON.parse(localStorage.getItem("cart6")) || [];
+let currentCategory = "all";
+
+const productList = document.getElementById("productList");
+const cartPanel = document.getElementById("cartPanel");
+const cartBtn = document.getElementById("cartBtn");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const totalEl = document.getElementById("total");
+const searchInput = document.getElementById("searchInput");
+const darkToggle = document.getElementById("darkToggle");
+
+function renderProducts() {
+    productList.innerHTML = "";
+    products
+        .filter(p => currentCategory === "all" || p.category === currentCategory)
+        .filter(p => p.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+        .forEach(p => {
+            productList.innerHTML += `
+                <div class="card">
+                    <img src="${p.img}">
+                    <h3>${p.name}</h3>
+                    <p>₹${p.price}</p>
+                    <button onclick="addToCart(${p.id})">Add to Cart</button>
+                </div>`;
+        });
+}
+
+function filterCategory(cat) {
+    currentCategory = cat;
+    renderProducts();
+}
+
+function addToCart(id) {
+    const item = cart.find(i => i.id === id);
+    if (item) item.qty++;
+    else {
+        const p = products.find(p => p.id === id);
+        cart.push({ ...p, qty: 1 });
+    }
+    updateCart();
+}
+
+function updateCart() {
+    cartItems.innerHTML = "";
+    let total = 0;
+    cart.forEach(i => {
+        total += i.price * i.qty;
+        cartItems.innerHTML += `<p>${i.name} x ${i.qty}</p>`;
+    });
+    totalEl.textContent = total;
+    cartCount.textContent = cart.reduce((a, b) => a + b.qty, 0);
+    localStorage.setItem("cart6", JSON.stringify(cart));
+}
+
+cartBtn.onclick = () => cartPanel.classList.add("open");
+document.getElementById("closeCart").onclick = () => cartPanel.classList.remove("open");
+searchInput.oninput = renderProducts;
+
+darkToggle.onclick = () => document.body.classList.toggle("dark");
+
+document.getElementById("checkout").onclick = () => alert("Checkout coming soon");
+
+renderProducts();
+updateCart();
+```
