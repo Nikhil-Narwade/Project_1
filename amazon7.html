@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon7</title>
+    <link rel="stylesheet" href="amazon7.css">
+</head>
+<body>
+
+<header>
+    <h1>Amazon7</h1>
+    <input type="text" id="search" placeholder="Search products">
+    <button id="cartBtn">Cart (<span id="cartCount">0</span>)</button>
+</header>
+
+<nav>
+    <button onclick="filterCategory('all')">All</button>
+    <button onclick="filterCategory('electronics')">Electronics</button>
+    <button onclick="filterCategory('fashion')">Fashion</button>
+</nav>
+
+<main id="products"></main>
+
+<div id="cartModal" class="hidden">
+    <div class="cart-box">
+        <h2>Your Cart</h2>
+        <ul id="cartItems"></ul>
+        <h3>Total: ₹<span id="totalPrice">0</span></h3>
+        <button onclick="closeCart()">Close</button>
+    </div>
+</div>
+
+<script src="amazon7.js"></script>
+</body>
+</html>
