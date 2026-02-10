@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon Clone</title>
+    <link rel="stylesheet" href="amazon11.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">amazon<span>.in</span></div>
+    <input type="text" id="searchInput" placeholder="Search products">
+    <div class="cart-btn" id="cartBtn">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </div>
+</header>
+
+<section class="products" id="productList">
+    <div class="card" data-name="smartphone mobile" data-category="electronics" data-price="9999">
+        <img src="https://via.placeholder.com/200">
+        <h3>Smartphone</h3>
+        <p>₹9,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="card" data-name="laptop bag" data-category="fashion" data-price="799">
+        <img src="https://via.placeholder.com/200">
+        <h3>Laptop Bag</h3>
+        <p>₹799</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="card" data-name="headphones audio" data-category="electronics" data-price="1499">
+        <img src="https://via.placeholder.com/200">
+        <h3>Headphones</h3>
+        <p>₹1,499</p>
+        <button>Add to Cart</button>
+    </div>
+</section>
+
+<section class="cart-section" id="cartSection">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <h3>Total: ₹<span id="totalPrice">0</span></h3>
+    <button id="clearCart">Clear Cart</button>
+</section>
+
+<script src="amazon11.js"></script>
+</body>
+</html>
