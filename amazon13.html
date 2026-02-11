@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon13</title>
+    <link rel="stylesheet" href="amazon13.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">amazon<span>.in</span></div>
+
+    <input type="text" id="searchInput" placeholder="Search products">
+
+    <select id="sortSelect">
+        <option value="">Sort</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+    </select>
+
+    <button id="darkToggle">🌙</button>
+
+    <div class="cart-btn" id="cartBtn">
+        🛒 <span id="cartCount">0</span>
+    </div>
+</header>
+
+<div class="filters">
+    <button data-filter="all">All</button>
+    <button data-filter="electronics">Electronics</button>
+    <button data-filter="fashion">Fashion</button>
+</div>
+
+<section class="products" id="productList">
+
+    <div class="card" data-name="smartphone" data-category="electronics" data-price="9999">
+        <img src="https://via.placeholder.com/200">
+        <h3>Smartphone</h3>
+        <p>₹9999</p>
+        <button class="viewBtn">View</button>
+        <button class="addBtn">Add to Cart</button>
+    </div>
+
+    <div class="card" data-name="laptop bag" data-category="fashion" data-price="799">
+        <img src="https://via.placeholder.com/200">
+        <h3>Laptop Bag</h3>
+        <p>₹799</p>
+        <button class="viewBtn">View</button>
+        <button class="addBtn">Add to Cart</button>
+    </div>
+
+    <div class="card" data-name="headphones" data-category="electronics" data-price="1499">
+        <img src="https://via.placeholder.com/200">
+        <h3>Headphones</h3>
+        <p>₹1499</p>
+        <button class="viewBtn">View</button>
+        <button class="addBtn">Add to Cart</button>
+    </div>
+
+</section>
+
+<div class="cart-sidebar" id="cartSidebar">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <h3>Total: ₹<span id="totalPrice">0</span></h3>
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span id="closeModal">X</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalPrice"></p>
+    </div>
+</div>
+
+<script src="amazon13.js"></script>
+</body>
+</html>
