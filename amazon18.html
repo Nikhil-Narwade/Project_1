@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon18</title>
+    <link rel="stylesheet" href="amazon18.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">amazon<span>.in</span></div>
+
+    <input type="text" id="searchInput" placeholder="Search products">
+
+    <select id="categoryFilter">
+        <option value="">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="fashion">Fashion</option>
+    </select>
+
+    <select id="priceFilter">
+        <option value="">Price</option>
+        <option value="0-1000">Under ₹1000</option>
+        <option value="1000-10000">₹1000 - ₹10000</option>
+    </select>
+
+    <select id="sortSelect">
+        <option value="">Sort</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+    </select>
+
+    <button id="darkToggle">🌙</button>
+
+    <div class="wishlist-btn" id="wishlistBtn">❤️ <span id="wishCount">0</span></div>
+    <div class="cart-btn" id="cartBtn">🛒 <span id="cartCount">0</span></div>
+</header>
+
+<section class="products" id="productList">
+
+    <div class="card" data-name="Smartphone" data-category="electronics" data-price="9999" data-rating="4">
+        <img src="https://via.placeholder.com/200">
+        <h3>Smartphone</h3>
+        <p>⭐⭐⭐⭐☆</p>
+        <p class="price">₹9999</p>
+        <div class="qtyBox">
+            <button class="qtyMinus">-</button>
+            <input type="number" value="1" min="1">
+            <button class="qtyPlus">+</button>
+        </div>
+        <button class="addBtn">Add to Cart</button>
+        <button class="wishBtn">Wishlist</button>
+    </div>
+
+    <div class="card" data-name="Laptop Bag" data-category="fashion" data-price="799" data-rating="5">
+        <img src="https://via.placeholder.com/200">
+        <h3>Laptop Bag</h3>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p class="price">₹799</p>
+        <div class="qtyBox">
+            <button class="qtyMinus">-</button>
+            <input type="number" value="1" min="1">
+            <button class="qtyPlus">+</button>
+        </div>
+        <button class="addBtn">Add to Cart</button>
+        <button class="wishBtn">Wishlist</button>
+    </div>
+
+</section>
+
+<div class="drawer" id="cartDrawer">
+    <h2>Cart</h2>
+    <div id="cartItems"></div>
+    <p>Items: <span id="totalItems">0</span></p>
+    <p>Subtotal: ₹<span id="subtotal">0</span></p>
+    <p>GST (18%): ₹<span id="gst">0</span></p>
+    <h3>Total: ₹<span id="totalPrice">0</span></h3>
+    <button id="clearCart">Clear Cart</button>
+</div>
+
+<div class="drawer" id="wishlistDrawer">
+    <h2>Wishlist</h2>
+    <div id="wishlistItems"></div>
+</div>
+
+<div id="toast"></div>
+
+<script src="amazon18.js"></script>
+</body>
+</html>
