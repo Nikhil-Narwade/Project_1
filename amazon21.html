@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Amazon21</title>
+<link rel="stylesheet" href="amazon21.css">
+</head>
+<body>
+
+<header class="navbar">
+
+<div class="logo">amazon<span>.in</span></div>
+
+<input type="text" id="searchInput" placeholder="Search Amazon.in">
+
+<select id="sortSelect">
+<option value="">Sort</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+</select>
+
+<select id="categoryFilter">
+<option value="">All</option>
+<option value="electronics">Electronics</option>
+<option value="fashion">Fashion</option>
+<option value="home">Home</option>
+</select>
+
+<input type="text" id="couponInput" placeholder="Coupon code">
+<button id="applyCoupon">Apply</button>
+
+<button id="darkToggle">🌙</button>
+
+<div class="wishlist-btn" id="wishlistBtn">❤️ <span id="wishCount">0</span></div>
+<div class="cart-btn" id="cartBtn">🛒 <span id="cartCount">0</span></div>
+
+</header>
+
+<section class="products" id="productList"></section>
+
+<div class="drawer" id="cartDrawer">
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+<p>Subtotal: ₹<span id="subtotal">0</span></p>
+<p>GST: ₹<span id="gst">0</span></p>
+<p>Delivery: ₹<span id="delivery">0</span></p>
+<p>Discount: ₹<span id="discount">0</span></p>
+<h3>Total: ₹<span id="totalPrice">0</span></h3>
+<button id="clearCart">Clear Cart</button>
+</div>
+
+<div class="drawer" id="wishlistDrawer">
+<h2>Your Wishlist</h2>
+<div id="wishlistItems"></div>
+<button id="clearWish">Clear Wishlist</button>
+</div>
+
+<div id="toast"></div>
+
+<script src="amazon21.js"></script>
+
+</body>
+</html>
