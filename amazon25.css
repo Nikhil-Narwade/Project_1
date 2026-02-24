@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f3f3f3;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #131921;
+  color: white;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar input,
+.navbar select {
+  padding: 6px;
+}
+
+.nav-icons button {
+  margin-left: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* PRODUCTS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.product button {
+  margin: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* SIDE PANELS */
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  overflow-y: auto;
+  transition: right 0.3s;
+}
+
+.side-panel.active {
+  right: 0;
+}
+
+/* CART ITEMS */
+.cart-item,
+.wishlist-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.cart-item img,
+.wishlist-item img {
+  width: 60px;
+  height: 60px;
+}
+
+.qty-controls button {
+  padding: 3px 8px;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.toast.show {
+  opacity: 1;
+}
