@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Amazon Clone 25</title>
+  <link rel="stylesheet" href="amazon25.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2>Amazon25</h2>
+
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search products..."
+      onkeyup="searchProducts()"
+    />
+
+    <select onchange="sortProducts(this.value)">
+      <option value="">Sort</option>
+      <option value="low">Price Low → High</option>
+      <option value="high">Price High → Low</option>
+    </select>
+
+    <div class="nav-icons">
+      <button onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</button>
+      <button onclick="toggleWishlist()">Wishlist</button>
+    </div>
+  </nav>
+
+  <div id="products" class="products">
+
+    <div class="product" data-price="499">
+      <img src="https://via.placeholder.com/150" />
+      <h3 class="product-title">Wireless Mouse</h3>
+      <p>₹499</p>
+      <button onclick="addToCart(1,'Wireless Mouse',499,'https://via.placeholder.com/150')">
+        Add to Cart
+      </button>
+      <button onclick="addToWishlist(1,'Wireless Mouse',499,'https://via.placeholder.com/150')">
+        Wishlist
+      </button>
+    </div>
+
+    <div class="product" data-price="999">
+      <img src="https://via.placeholder.com/150" />
+      <h3 class="product-title">Keyboard</h3>
+      <p>₹999</p>
+      <button onclick="addToCart(2,'Keyboard',999,'https://via.placeholder.com/150')">
+        Add to Cart
+      </button>
+      <button onclick="addToWishlist(2,'Keyboard',999,'https://via.placeholder.com/150')">
+        Wishlist
+      </button>
+    </div>
+
+    <div class="product" data-price="1499">
+      <img src="https://via.placeholder.com/150" />
+      <h3 class="product-title">Headphones</h3>
+      <p>₹1499</p>
+      <button onclick="addToCart(3,'Headphones',1499,'https://via.placeholder.com/150')">
+        Add to Cart
+      </button>
+      <button onclick="addToWishlist(3,'Headphones',1499,'https://via.placeholder.com/150')">
+        Wishlist
+      </button>
+    </div>
+
+  </div>
+
+  <div id="cart-panel" class="side-panel">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h3>Total: <span id="cart-total">₹0</span></h3>
+  </div>
+
+  <div id="wishlist-panel" class="side-panel">
+    <h2>Your Wishlist</h2>
+    <div id="wishlist-items"></div>
+  </div>
+
+  <script src="amazon25.js"></script>
+
+  <script>
+    function toggleCart() {
+      document.getElementById("cart-panel").classList.toggle("active");
+    }
+
+    function toggleWishlist() {
+      document.getElementById("wishlist-panel").classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
